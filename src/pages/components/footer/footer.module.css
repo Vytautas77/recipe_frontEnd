@@ -1,6 +1,7 @@
 .wrapper {
   height: 5rem;
-  background-color: blue;
+  background-color: #623520;
+  color: white;
   width: 70%;
   margin: auto;
 }
