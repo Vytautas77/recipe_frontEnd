@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styles from "./recipe.module.css";
+import Link from "next/link";
 
 type RecipeType = {
   _id: string;
@@ -20,15 +21,21 @@ type RecipeComponentType = {
 const Recipe: React.FC<RecipeComponentType> = ({ recipe }) => {
   return (
     <>
-      <div className={styles.wrapper}>
-        <div className={styles.category}>{`Kategorija ${recipe.category}`}</div>
-        <img
-          src={recipe.recipePhotoUrl}
-          alt={`Photo of ${recipe.title}`}
-          className={styles.img}
-        />
-        <h3>{recipe.title}</h3>
-      </div>
+      {recipe && (
+        <Link className={styles.link} href={`/recipe/${recipe._id}`}>
+          <div className={styles.wrapper}>
+            <div
+              className={styles.category}
+            >{`Kategorija ${recipe.category}`}</div>
+            <img
+              src={recipe.recipePhotoUrl}
+              alt={`Photo of ${recipe.title}`}
+              className={styles.img}
+            />
+            <h3>{recipe.title}</h3>
+          </div>
+        </Link>
+      )}
     </>
   );
 };

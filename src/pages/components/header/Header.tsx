@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Link href="./" className={styles.logoBar}>
+      <Link href="/" className={styles.logoBar}>
         <Image
           src={logo}
           className={styles.logoCake}
