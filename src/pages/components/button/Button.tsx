@@ -8,12 +8,18 @@ const robotoFont = Roboto({
 });
 
 type ButtonType = {
+  onClick?: () => void;
   text: string;
 };
 
-const Button: React.FC<ButtonType> = ({ text }) => {
+const Button: React.FC<ButtonType> = ({ text, onClick }) => {
   return (
-    <button className={`${styles.btn} ${robotoFont.className}`}>{text}</button>
+    <button
+      className={`${styles.btn} ${robotoFont.className}`}
+      onClick={onClick}
+    >
+      {text}
+    </button>
   );
 };
 

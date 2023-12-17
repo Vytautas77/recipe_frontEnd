@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
-import PageTemplate from "./template/PageTemplate";
-import Recipes from "./components/recipes/Recipes";
+import PageTemplate from "../template/PageTemplate";
+import Recipes from "../components/recipes/Recipes";
 import { useRouter } from "next/router";
 
 type RecipeType = {
@@ -27,21 +27,25 @@ const Index = () => {
       const headers = {
         authorization: cookie.get("log15152Log"),
       };
-      const response = await axios.get(`${process.env.SERVER_URL}/recipes`, {
-        headers,
-      });
+      const response = await axios.get(
+        `${process.env.SERVER_URL}/recipes/auth`,
+        {
+          headers,
+        }
+      );
       const sortedRecipes = response.data.recipes
         .sort((a: RecipeType, b: RecipeType) => {
           return a.date > b.date ? 1 : -1;
         })
         .slice(0, 8);
-      console.log(response.data.recipes.userId);
+      console.log(response);
+
       setRecipes(sortedRecipes);
     } catch (error) {
       console.error("Error fetching recipes:", error);
       // @ts-ignore
       if (error.response && error.response.status === 401) {
-        router.push("/");
+        router.push("/authIndex");
       }
     }
   };

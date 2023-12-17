@@ -13,6 +13,7 @@ type RecipeType = {
   recipeAuthor: string;
   recipePhotoUrl: string;
   title: string;
+  userName: string;
 };
 type RecipeComponentType = {
   recipe: RecipeType;
