@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 import PageTemplate from "../template/PageTemplate";
-import Recipes from "../components/recipes/Recipes";
+
 import { useRouter } from "next/router";
+import RecipesAuth from "../components/recipesAuth/RecipesAuth";
 
 type RecipeType = {
   _id: string;
@@ -59,7 +60,7 @@ const Index = () => {
   return (
     <div>
       <PageTemplate>
-        <Recipes recipes={recipes} />
+        <RecipesAuth recipes={recipes} />
       </PageTemplate>
     </div>
   );

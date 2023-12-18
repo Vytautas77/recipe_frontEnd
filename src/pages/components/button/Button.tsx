@@ -11,12 +11,18 @@ type ButtonType = {
   isLoading?: boolean;
   onClick?: () => void;
   text: string;
+  className?: string;
 };
 
-const Button: React.FC<ButtonType> = ({ text, onClick, isLoading }) => {
+const Button: React.FC<ButtonType> = ({
+  text,
+  onClick,
+  isLoading,
+  className,
+}) => {
   return (
     <button
-      className={`${styles.btn} ${robotoFont.className}`}
+      className={`${styles.btn} ${robotoFont.className} ${className}`}
       onClick={onClick}
     >
       {!isLoading ? <>{text}</> : <>loading...</>}

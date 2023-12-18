@@ -1,0 +1,42 @@
+.wrapper {
+  width: 100%;
+  border: 1px solid grey;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px #623520;
+  box-sizing: border-box;
+
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.wrapper p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+.category {
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+.img {
+  margin: auto;
+  border: 1px solid black;
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.infoBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btn {
+  background-color: red;
+}
