@@ -33,11 +33,12 @@ const Index = () => {
           headers,
         }
       );
-      const sortedRecipes = response.data.recipes
-        .sort((a: RecipeType, b: RecipeType) => {
+      const sortedRecipes = response.data.recipes.sort(
+        (a: RecipeType, b: RecipeType) => {
           return a.date > b.date ? 1 : -1;
-        })
-        .slice(0, 8);
+        }
+      );
+
       console.log(response);
 
       setRecipes(sortedRecipes);

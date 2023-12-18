@@ -1,0 +1,36 @@
+.wrapper {
+  width: 500px;
+  background-color: rgba(0, 0, 0, 0.251);
+  margin: auto;
+  margin-top: 3rem;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.wrapper h2 {
+  margin-bottom: 0.8rem;
+}
+.inputsBar {
+  width: 100%;
+
+  box-sizing: border-box;
+}
+.inputsBar input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+}
+.inputsBar p {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  height: 1rem;
+  text-align: center;
+  color: red;
+  font-size: 0.9rem;
+}
+.textArea {
+  box-sizing: border-box;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+}

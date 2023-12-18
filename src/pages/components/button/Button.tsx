@@ -8,17 +8,18 @@ const robotoFont = Roboto({
 });
 
 type ButtonType = {
+  isLoading?: boolean;
   onClick?: () => void;
   text: string;
 };
 
-const Button: React.FC<ButtonType> = ({ text, onClick }) => {
+const Button: React.FC<ButtonType> = ({ text, onClick, isLoading }) => {
   return (
     <button
       className={`${styles.btn} ${robotoFont.className}`}
       onClick={onClick}
     >
-      {text}
+      {!isLoading ? <>{text}</> : <>loading...</>}
     </button>
   );
 };

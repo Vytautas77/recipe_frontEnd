@@ -15,6 +15,7 @@ type RecipeType = {
   recipeAuthor: string;
   recipePhotoUrl: string;
   title: string;
+  userName: string;
 };
 type RecipesType = {
   recipes: RecipeType[] | null;
