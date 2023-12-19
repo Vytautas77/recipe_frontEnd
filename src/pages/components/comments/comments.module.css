@@ -38,3 +38,7 @@
 .gainedLikes:hover {
   transform: scale(1.2);
 }
+.commentBox {
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}

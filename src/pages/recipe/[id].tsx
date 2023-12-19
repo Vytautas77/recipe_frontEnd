@@ -16,6 +16,7 @@ type RecipeType = {
   recipePhotoUrl: string;
   title: string;
   userName: string;
+  recipesComments: [];
 };
 
 const Recipe = () => {
@@ -25,21 +26,25 @@ const Recipe = () => {
   const fetchRecipe = async (id: string) => {
     try {
       const response = await axios.get(
-        `${process.env.SERVER_URL}/recipes/${id}`
+        `${process.env.SERVER_URL}/recipes/${id}/comments`
       );
+
       setRecipe(response.data.recipe);
     } catch (error) {
       console.error("Error fetching recipes:", error);
     }
   };
 
+  const recipeId = router.query.id;
+
   useEffect(() => {
     router.query.id && fetchRecipe(router.query.id as string);
   }, [router.query.id]);
 
+  const id = router.query.id;
   return (
     <PageTemplate>
-      <RecipeId recipe={recipe} />
+      <RecipeId recipe={recipe} id={id as string} />
     </PageTemplate>
   );
 };

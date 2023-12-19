@@ -6,6 +6,7 @@ import styles from "./recipeId.module.css";
 import { useRouter } from "next/router";
 import Button from "../button/Button";
 import Comments from "../comments/Comments";
+import CommentSend from "../commentSend/CommentSend";
 
 type CommentType = {
   _id: string;
@@ -15,7 +16,7 @@ type CommentType = {
   recipeId: string;
 };
 
-type RecipeType = {
+type RecipesType = {
   _id: string;
   category: string;
   date: string;
@@ -26,37 +27,36 @@ type RecipeType = {
   recipePhotoUrl: string;
   title: string;
   userName: string;
+  recipesComments: [];
 };
 type RecipeIdType = {
-  recipe: RecipeType | null;
+  recipe: RecipesType | null;
+  id: string;
 };
 
-const RecipeId: React.FC<RecipeIdType> = ({ recipe }) => {
-  const [commentsLocations, setCommentsLocations] =
-    useState<Array<CommentType> | null>(null);
+const RecipeId: React.FC<RecipeIdType> = ({ recipe, id }) => {
+  const comments = recipe?.recipesComments;
 
-  const router = useRouter();
+  // const [commentsLocations, setCommentsLocations] =
+  //   useState<Array<CommentType> | null>(null);
 
-  const fetchComments = async () => {
-    try {
-      const headers = {
-        authorization: cookie.get("log15152Log"),
-      };
-      const response = await axios.get(`${process.env.SERVER_URL}/comments`, {
-        headers,
-      });
-      setCommentsLocations(response.data.comments);
-    } catch (error) {
-      console.error("Error fetching locations:", error);
-      //@ts-ignore
-      if (error.response.status === 401) {
-        router.push("/");
-      }
-    }
-  };
-  useEffect(() => {
-    fetchComments();
-  }, []);
+  // const router = useRouter();
+
+  // const fetchComments = async () => {
+  //   try {
+  //     const response = await axios.get(`${process.env.SERVER_URL}/comments`);
+  //     setCommentsLocations(response.data.comments);
+  //   } catch (error) {
+  //     console.error("Error fetching locations:", error);
+  //     //@ts-ignore
+  //     if (error.response.status === 401) {
+  //       router.push("/");
+  //     }
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchComments();
+  // }, []);
 
   return (
     <>
@@ -73,17 +73,8 @@ const RecipeId: React.FC<RecipeIdType> = ({ recipe }) => {
             />
             <p>{recipe.description}</p>
 
-            <Comments comments={commentsLocations} />
-
-            <div className={styles.commentsWrapper}>
-              <h5>Palikti komentarą:</h5>
-              <textarea
-                cols={48}
-                rows={5}
-                placeholder="Palikti komentatrą"
-              ></textarea>
-              <Button text="Siųsti" />
-            </div>
+            <Comments comments={comments as []} />
+            <CommentSend id={id} />
           </div>
 
           <p className={styles.rightBox}>{recipe.methodOfPreparation}</p>

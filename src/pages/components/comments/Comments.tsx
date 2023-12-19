@@ -22,7 +22,7 @@ const Comments: React.FC<CommentsType> = ({ comments }) => {
       {comments &&
         comments.length > 0 &&
         comments.map((comment) => (
-          <div key={comment._id}>
+          <div key={comment._id} className={styles.commentBox}>
             <nav className={styles.commentHeader}>
               <p>{`Data: ${comment.date.substring(0, 15)}`}</p>
               <div className={styles.gainedLikesBar}>

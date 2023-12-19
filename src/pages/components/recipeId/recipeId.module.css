@@ -16,9 +16,3 @@
 .img {
   width: 100%;
 }
-.commentsWrapper {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.242);
-  padding: 0.5rem;
-  box-sizing: border-box;
-}

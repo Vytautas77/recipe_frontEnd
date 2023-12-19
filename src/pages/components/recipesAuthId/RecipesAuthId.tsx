@@ -18,6 +18,7 @@ type RecipeType = {
   recipePhotoUrl: string;
   title: string;
   userName: string;
+  recipesComments: [];
 };
 type RecipeIdType = {
   recipe: RecipeType | null;

@@ -76,7 +76,9 @@ const AddRecipe = () => {
         { headers }
       );
       setIsLoading(false);
-      if (response.status === 200) {
+      console.log(response);
+
+      if (response.status === 201) {
         router.push("/");
       }
     } catch (error) {
@@ -164,11 +166,7 @@ const AddRecipe = () => {
               <span>Įveskite gaminio paruošymo būdą.</span>
             )}
           </p>
-          <Button
-            text="Įkelti"
-            onClick={onAddLocation}
-            isLoading={!isLoading}
-          />
+          <Button text="Įkelti" onClick={onAddLocation} isLoading={isLoading} />
         </div>
       </div>
     </PageTemplate>
