@@ -30,12 +30,11 @@ const Index = () => {
       const response = await axios.get(`${process.env.SERVER_URL}/recipes`, {
         headers,
       });
-      const sortedRecipes = response.data.recipes
-        .sort((a: RecipeType, b: RecipeType) => {
+      const sortedRecipes = response.data.recipes.sort(
+        (a: RecipeType, b: RecipeType) => {
           return a.date > b.date ? 1 : -1;
-        })
-        .slice(0, 8);
-      console.log(response.data.recipes.userId);
+        }
+      );
       setRecipes(sortedRecipes);
     } catch (error) {
       console.error("Error fetching recipes:", error);

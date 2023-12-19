@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import cookie from "js-cookie";
 import PageTemplate from "../template/PageTemplate";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -35,6 +36,7 @@ const Recipe = () => {
   useEffect(() => {
     router.query.id && fetchRecipe(router.query.id as string);
   }, [router.query.id]);
+
   return (
     <PageTemplate>
       <RecipeId recipe={recipe} />

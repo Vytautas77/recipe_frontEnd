@@ -5,6 +5,7 @@ import PageTemplate from "../template/PageTemplate";
 
 import { useRouter } from "next/router";
 import RecipesAuth from "../components/recipesAuth/RecipesAuth";
+import { log } from "console";
 
 type RecipeType = {
   _id: string;
@@ -39,8 +40,6 @@ const Index = () => {
           return a.date > b.date ? 1 : -1;
         }
       );
-
-      console.log(response);
 
       setRecipes(sortedRecipes);
     } catch (error) {
