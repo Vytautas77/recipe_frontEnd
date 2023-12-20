@@ -23,8 +23,9 @@ const Header = () => {
   const router = useRouter();
 
   const onLoginPress = () => {
-    router.push("/logo/");
+    router.push("/login/");
   };
+
   const onClickLogOut = () => {
     try {
       cookie.remove("log15152Log");
@@ -33,6 +34,16 @@ const Header = () => {
     } catch (error) {
       console.error("Error during log-out:", error);
     }
+  };
+
+  const onAddUserPress = () => {
+    router.push("/addUser/");
+  };
+  const onAddRecipe = () => {
+    router.push("/addRecipe");
+  };
+  const onGoRecipeAuth = () => {
+    router.push("/authIndex");
   };
 
   return (
@@ -53,20 +64,21 @@ const Header = () => {
         <ul className={styles.menu}>
           <li>
             {isUserLoginIn && (
-              <Link href="/addRecipe" className={styles.logoUser}>
-                Įdėti receptą
-              </Link>
+              <Button text="Įdėti receptą" onClick={onAddRecipe} />
             )}
           </li>
         </ul>
         <div className={styles.login}>
-          <Button text="Logo" onClick={onLoginPress} />
+          <div className={styles.buttonBar}>
+            {!isUserLoginIn && (
+              <>
+                <Button text="Login" onClick={onLoginPress} />
+                <Button text="Add User" onClick={onAddUserPress} />
+              </>
+            )}
+          </div>
           {isUserLoginIn && (
-            <h6>
-              <Link href="/authIndex" className={styles.logoUser}>
-                prisijungęs
-              </Link>
-            </h6>
+            <Button text="Tavo receptai" onClick={onGoRecipeAuth} />
           )}
         </div>
         {isUserLoginIn && (

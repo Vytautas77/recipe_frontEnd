@@ -27,3 +27,9 @@
   background-color: #374724;
   color: white;
 }
+.exit {
+  width: 13px;
+  height: 13px;
+  margin-left: auto;
+  cursor: pointer;
+}

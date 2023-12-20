@@ -12,7 +12,6 @@
 }
 .inputsBar {
   width: 100%;
-
   box-sizing: border-box;
 }
 .inputsBar input {
@@ -24,15 +23,11 @@
 .inputsBar p {
   margin: 0;
   margin-bottom: 0.5rem;
+
   height: 1rem;
   text-align: center;
   color: red;
-  font-size: 0.9rem;
-}
-.textArea {
-  box-sizing: border-box;
-  padding: 0.3rem;
-  border-radius: 0.3rem;
+  font-size: 0.7rem;
 }
 .exit {
   width: 13px;
