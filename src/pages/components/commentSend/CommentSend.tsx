@@ -36,7 +36,6 @@ const CommentSend: React.FC<CommentsSendType> = ({ id }) => {
       );
 
       if (response.status === 201) {
-        router.push("#");
         window.location.reload();
       }
     } catch (error) {

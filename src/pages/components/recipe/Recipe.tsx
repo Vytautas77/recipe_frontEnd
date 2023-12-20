@@ -33,7 +33,7 @@ const Recipe: React.FC<RecipeComponentType> = ({ recipe }) => {
               alt={`Photo of ${recipe.title}`}
               className={styles.img}
             />
-            <h3>{recipe.title}</h3>
+            <h5>{recipe.title}</h5>
           </div>
         </Link>
       )}

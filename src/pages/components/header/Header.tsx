@@ -57,7 +57,7 @@ const Header = () => {
           height={500}
         />
         <h1 className={`${styles.logoText} ${interFont.className}`}>
-          Kepinių receptai
+          Receptai
         </h1>
       </Link>
       <nav className={styles.navBar}>
