@@ -10,6 +10,7 @@ type CommentType = {
   date: string;
   gainedLikesNumber: number;
   recipeId: string;
+  userName: string;
 };
 
 type CommentsType = {
@@ -18,35 +19,39 @@ type CommentsType = {
 
 const Comments: React.FC<CommentsType> = ({ comments }) => {
   return (
-    <div className={styles.wrapper}>
-      {comments &&
-        comments.length > 0 &&
-        comments.map((comment) => (
-          <div key={comment._id} className={styles.commentBox}>
-            <nav className={styles.commentHeader}>
-              <p>{`Data: ${comment.date.substring(0, 15)}`}</p>
-              <div className={styles.gainedLikesBar}>
-                <p> {comment.gainedLikesNumber}</p>
-                <Image
-                  src={ok}
-                  className={styles.gainedLikes}
-                  alt="gainedLikes picture"
-                  width={800}
-                  height={500}
-                />
-                <Image
-                  src={okDown}
-                  className={styles.gainedLikes}
-                  alt="gainedLikes picture"
-                  width={800}
-                  height={500}
-                />
-              </div>
-            </nav>
-            <div>{comment.commentText}</div>
-          </div>
-        ))}
-    </div>
+    <>
+      {comments && comments.length > 0 && (
+        <div className={styles.wrapper}>
+          {comments.map((comment) => (
+            <div key={comment._id} className={styles.commentBox}>
+              <nav className={styles.commentHeader}>
+                <p>{`Date: ${comment.date.substring(0, 15)} |  Autorius: ${
+                  comment.userName
+                }`}</p>
+                <div className={styles.gainedLikesBar}>
+                  <p>{comment.gainedLikesNumber}</p>
+                  <Image
+                    src={ok}
+                    className={styles.gainedLikes}
+                    alt="gainedLikes picture"
+                    width={800}
+                    height={500}
+                  />
+                  <Image
+                    src={okDown}
+                    className={styles.gainedLikes}
+                    alt="gainedLikes picture"
+                    width={800}
+                    height={500}
+                  />
+                </div>
+              </nav>
+              <div>{comment.commentText}</div>
+            </div>
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

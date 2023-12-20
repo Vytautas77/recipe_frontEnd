@@ -166,20 +166,16 @@ const AddRecipe = () => {
             )}
           </p>
           <textarea
-            style={{ resize: "none" }}
+            style={{ resize: "none", width: "100%", height: "80px" }}
             className={styles.textArea}
-            cols={61}
-            rows={5}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Aprašymas"
           />
           <p> {isDescription && <span>Įveskite recepto apibūdinimą.</span>}</p>
           <textarea
-            style={{ resize: "none" }}
+            style={{ resize: "none", width: "100%", height: "80px" }}
             className={styles.textArea}
-            cols={61}
-            rows={5}
             value={methodOfPreparation}
             onChange={(e) => setMethodOfPreparation(e.target.value)}
             placeholder="Paruošimo būdas"

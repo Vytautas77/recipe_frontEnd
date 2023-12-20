@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 import RecipesAuthId from "../components/recipesAuthId/RecipesAuthId";
+import Spinner from "../components/spinner/Spinner";
 
 type RecipeType = {
   _id: string;
@@ -17,6 +18,7 @@ type RecipeType = {
   recipePhotoUrl: string;
   title: string;
   userName: string;
+  recipesComments: [];
 };
 
 const RecipeAuthId = () => {
@@ -43,7 +45,11 @@ const RecipeAuthId = () => {
   }, [router.query.id]);
   return (
     <PageTemplate>
-      <RecipesAuthId recipe={recipe} id={router.query.id as string} />
+      {recipe ? (
+        <RecipesAuthId recipe={recipe} id={router.query.id as string} />
+      ) : (
+        <Spinner />
+      )}
     </PageTemplate>
   );
 };

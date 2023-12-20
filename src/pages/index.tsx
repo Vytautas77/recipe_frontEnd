@@ -4,6 +4,7 @@ import cookie from "js-cookie";
 import PageTemplate from "./template/PageTemplate";
 import Recipes from "./components/recipes/Recipes";
 import { useRouter } from "next/router";
+import Spinner from "./components/spinner/Spinner";
 
 type RecipeType = {
   _id: string;
@@ -54,7 +55,7 @@ const Index = () => {
   return (
     <div>
       <PageTemplate>
-        <Recipes recipes={recipes} />
+        {recipes ? <Recipes recipes={recipes} /> : <Spinner />}
       </PageTemplate>
     </div>
   );

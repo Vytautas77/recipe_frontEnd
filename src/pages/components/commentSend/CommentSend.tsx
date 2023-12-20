@@ -34,10 +34,10 @@ const CommentSend: React.FC<CommentsSendType> = ({ id }) => {
         comment,
         { headers }
       );
-      console.log(response);
 
       if (response.status === 201) {
-        router.push("/");
+        router.push("#");
+        window.location.reload();
       }
     } catch (error) {
       //@ts-ignore
@@ -53,10 +53,9 @@ const CommentSend: React.FC<CommentsSendType> = ({ id }) => {
     <div className={styles.commentsWrapper}>
       <h5>Palikti komentarą:</h5>
       <textarea
+        style={{ resize: "none", width: "97%", height: "80px" }}
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}
-        cols={48}
-        rows={5}
         placeholder="Palikti komentatrą"
         className={styles.textArea}
       ></textarea>
