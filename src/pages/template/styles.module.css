@@ -9,4 +9,10 @@
   background-color: white;
   margin: auto;
   margin-top: 5.5rem;
+  min-width: 420px;
+}
+@media screen and (max-width: 900px) {
+  .main {
+    width: 90%;
+  }
 }

@@ -71,13 +71,19 @@ const RecipeId: React.FC<RecipeIdType> = ({ recipe, id }) => {
               src={recipe.recipePhotoUrl}
               alt={`Recepto nuotrauka ${recipe.title}`}
             />
-            <p>{recipe.description}</p>
+            <p>
+              <span style={{ fontWeight: "bold" }}>Autorius apie receptą:</span>
+              {`  ${recipe.description}`}
+            </p>
 
             <Comments comments={comments as []} />
             <CommentSend id={id} />
           </div>
 
-          <p className={styles.rightBox}>{recipe.methodOfPreparation}</p>
+          <p className={styles.rightBox}>
+            <span style={{ fontWeight: "bold" }}>Paruošimo būdas:</span> <br />
+            {recipe.methodOfPreparation}
+          </p>
         </div>
       )}
     </>

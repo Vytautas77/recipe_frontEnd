@@ -1,0 +1,35 @@
+.menuBurgerList {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .menuBurgerList {
+    display: inline-block;
+    width: 150px;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 5.6rem;
+    right: 2rem;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+    transition: 1s;
+  }
+  .active {
+    right: 50rem;
+  }
+  .menuList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .menuList a {
+    text-decoration: none;
+    color: antiquewhite;
+    border-bottom: 1px solid white;
+    padding-bottom: 0.5rem;
+  }
+  .menuList a:hover {
+    background-color: rgba(0, 0, 0, 0.822);
+    padding: 0.5rem 0.2rem;
+  }
+}

@@ -1,0 +1,41 @@
+.wrapper {
+  display: none;
+}
+
+@media screen and (max-width: 520px) {
+  .wrapper {
+    display: inline-block;
+    width: 90%;
+    left: 0;
+    right: 0;
+    top: 1rem;
+    margin: auto;
+    position: fixed;
+    z-index: 5;
+    height: 4rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem 2rem;
+    box-sizing: border-box;
+    min-width: 420px;
+  }
+  .logoBar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: black;
+    text-decoration: none;
+    color: #f1b4d3;
+  }
+  .logoCake {
+    width: 3rem;
+    height: 4rem;
+    object-fit: cover;
+  }
+  .navBar {
+    display: flex;
+    align-items: center;
+  }
+}
