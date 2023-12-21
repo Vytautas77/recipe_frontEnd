@@ -12,7 +12,24 @@
   background-color: rgba(0, 0, 0, 0.207);
   width: 35%;
   padding: 0.5rem;
+  box-sizing: border-box;
 }
 .img {
   width: 100%;
+}
+@media screen and (max-width: 520px) {
+  .wrapper {
+    display: block;
+  }
+  .leftBox {
+    order: 1;
+    width: 100%;
+  }
+  .rightBox {
+    order: 2;
+    width: 100%;
+  }
+}
+.commentsWrapper {
+  order: 3;
 }

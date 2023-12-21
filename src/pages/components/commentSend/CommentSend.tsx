@@ -41,7 +41,7 @@ const CommentSend: React.FC<CommentsSendType> = ({ id }) => {
     } catch (error) {
       //@ts-ignore
       if (error.response && error.response.status === 401) {
-        alert("Error adding comment");
+        alert("Comments can only be made by a logged in person");
         router.push("/");
         console.error("Error adding comment", error);
       }
@@ -52,7 +52,6 @@ const CommentSend: React.FC<CommentsSendType> = ({ id }) => {
     <div className={styles.commentsWrapper}>
       <h5>Palikti komentarą:</h5>
       <textarea
-        style={{ resize: "none", width: "97%", height: "80px" }}
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}
         placeholder="Palikti komentatrą"

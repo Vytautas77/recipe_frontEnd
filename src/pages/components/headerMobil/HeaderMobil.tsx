@@ -35,9 +35,6 @@ const Header = () => {
     }
   };
 
-  const onAddRecipe = () => {
-    router.push("/addRecipe");
-  };
   const onGoRecipeAuth = () => {
     router.push("/authIndex");
   };

@@ -37,27 +37,6 @@ type RecipeIdType = {
 const RecipeId: React.FC<RecipeIdType> = ({ recipe, id }) => {
   const comments = recipe?.recipesComments;
 
-  // const [commentsLocations, setCommentsLocations] =
-  //   useState<Array<CommentType> | null>(null);
-
-  // const router = useRouter();
-
-  // const fetchComments = async () => {
-  //   try {
-  //     const response = await axios.get(`${process.env.SERVER_URL}/comments`);
-  //     setCommentsLocations(response.data.comments);
-  //   } catch (error) {
-  //     console.error("Error fetching locations:", error);
-  //     //@ts-ignore
-  //     if (error.response.status === 401) {
-  //       router.push("/");
-  //     }
-  //   }
-  // };
-  // useEffect(() => {
-  //   fetchComments();
-  // }, []);
-
   return (
     <>
       {recipe && (
@@ -69,15 +48,16 @@ const RecipeId: React.FC<RecipeIdType> = ({ recipe, id }) => {
             <img
               className={styles.img}
               src={recipe.recipePhotoUrl}
-              alt={`Recepto nuotrauka ${recipe.title}`}
+              alt={`Nuotrauka ${recipe.title}`}
             />
             <p>
               <span style={{ fontWeight: "bold" }}>Autorius apie receptą:</span>
               {`  ${recipe.description}`}
             </p>
-
-            <Comments comments={comments as []} />
-            <CommentSend id={id} />
+            <div className={styles.commentsWrapper}>
+              <Comments comments={comments as []} />
+              <CommentSend id={id} />
+            </div>
           </div>
 
           <p className={styles.rightBox}>
